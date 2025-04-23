@@ -1,15 +1,17 @@
-import { View, Text, Button, Alert, TextInput } from 'react-native';
+import { View, Text, Button, Alert, TextInput, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import CustomInput from '../components/loginform'; // Ajustá el path si hace falta
-import { auth } from '../firebase/config';
+import CustomInput from '../../components/loginform'; // Ajustá el path si hace falta
+import { auth } from '../../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
+
 
  
 
 export default function Login() {
   const router = useRouter();
+
   const [nombre, setNombre] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,8 +26,7 @@ export default function Login() {
       const userCredential = await signInWithEmailAndPassword(auth,nombre, password);
 
       // Si la autenticación fue exitosa, redirige al usuario
-      console.log('Usuario autenticado:', userCredential.user);
-      router.replace('/home'); // Redirigir a la página principal
+      router.replace('/tabs/home'); // Redirigir a la página principal
 
     } catch (error) {
       if (error instanceof FirebaseError) {
@@ -42,8 +43,13 @@ export default function Login() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+      <Image
+  source={require('../../assets/images/Logo.png')} // ajustá la ruta según dónde esté tu archivo
+  style={{ width: 250, height: 250, marginBottom: 20 }}
+  resizeMode="contain"
+/>
+      <Text style={{ fontSize:30, textAlign: 'center', marginBottom: 20 }}>Bienvenido a la aplicación asistente de obras</Text>
       <Text  style={{ fontSize: 24, marginBottom: 10, textAlign: 'center' }}>Inicio de sesión</Text>
-      <Text style={{ textAlign: 'center', marginBottom: 20 }}>Bienvenido a la aplicación asistente de obras</Text>
       
       <CustomInput
         value={nombre}
