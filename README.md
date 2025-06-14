@@ -27,3 +27,8 @@ Aplicación desarrollada para dispositivos Android.
 - Firebase (Authentication y Firestore)
 - Node.js con Express (backend)
 - TypeScript
+## Autor
+- Mario Ocampo
+- Técnico Superior en Programación
+- Fundador de MO Servicios IT
+## Todos los derechos reservados © 2025 – MO Servicios IT
