@@ -1,11 +1,16 @@
 import { View, Text } from 'react-native';
+import  TableInformation from ".././../components/TableInformation";
 
 export default function Home() {
   return (
     <View>
-      <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20 }}>Bienvenido a la aplicación asistente de obras</Text>
-      <Text style={{ fontSize: 18, textAlign: 'center', marginTop: 10 }}>Esta es la página principal.</Text>
-      <Text style={{ fontSize: 18, textAlign: 'center', marginTop: 10 }}>Aquí puedes ver las obras y gestionar tus tareas.</Text>
+      <Text style={{ fontSize: 24, textAlign: 'center', marginTop: 20, textDecorationLine:'underline' }}>Página Principal</Text>
+      <Text style={{ fontSize: 16, marginTop: 20, marginStart:20 }}>Ultimas novedades</Text>
+      <TableInformation expediente={1235} novedad={"Soy la novedad"} />
+     
+      
     </View>
+    
   );
+  
 }
